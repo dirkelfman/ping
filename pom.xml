@@ -5,7 +5,7 @@
 
 	<groupId>com.infinxinc</groupId>
 	<artifactId>ping</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>ping</name>
@@ -62,6 +62,17 @@
 				      </goals>
 				    </execution>
 				    <execution>
+				      <id>tag-image</id>
+				      <phase>package</phase>
+				      <goals>
+				        <goal>tag</goal>
+				      </goals>
+				      <configuration>
+				        <image>my-image:${project.version}</image>
+				        <newName>152019006453.dkr.ecr.us-east-1.amazonaws.com/infinix:${project.version}</newName>
+				      </configuration>
+				    </execution>
+				    <execution>
 				      <id>push-image</id>
 				      <phase>deploy</phase>
 				      <goals>
@@ -73,6 +84,7 @@
 				    </execution>        
 				  </executions>
 				   <configuration>
+				   <forceTags>true</forceTags>
 				    <imageTags>
 			           <imageTag>${project.version}</imageTag>
 			           <imageTag>latest</imageTag>
