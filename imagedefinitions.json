@@ -8,13 +8,24 @@
           "cpu": 100,
           "portMappings": [
             {
-              "protocol": "tcp",
-              "containerPort": 80,
-              "hostPort": 80
-            }
+                "hostPort": 443,
+                "protocol": "tcp",
+                "containerPort": 443
+              },
+              {
+                "hostPort": 80,
+                "protocol": "tcp",
+                "containerPort": 80
+              }
           ],
           "memory": 128,
-          "essential": true
+          "essential": true,
+          "environment": [
+            {
+              "name": "spring.profiles.active",
+              "value": "prod"
+            }
+          ]
         }
       ]
     }
