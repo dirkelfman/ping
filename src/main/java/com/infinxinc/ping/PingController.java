@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PingController {
 
 	
-    private static final String template = "Hello, %s!";
+    private static final String template = "Hellos, %s!";
 	private static final String API_ROOT = "/api/ping";
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping(API_ROOT)
     public Ping greeting(@RequestParam(value="name", defaultValue="World") String name) {
+        
         return new Ping(counter.incrementAndGet(),
                             String.format(template, name));
     }
