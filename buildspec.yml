@@ -9,6 +9,12 @@ phases:
       - REPOSITORY_URI=152019006453.dkr.ecr.us-east-1.amazonaws.com/infinix/ping
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - apt-get install -y maven
   build:
     commands:
       - echo Build started on `date`
