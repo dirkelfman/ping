@@ -1,0 +1,27 @@
+{
+    "taskDefinition": {
+        "family": "ping",
+        "containerDefinitions": [{
+            "name": "ping",
+            "image": "152019006453.dkr.ecr.us-east-1.amazonaws.com/infinix/ping:latest",
+            "cpu": 100,
+            "portMappings": [{
+                    "hostPort": 443,
+                    "protocol": "tcp",
+                    "containerPort": 8443
+                },
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "memory": 128,
+            "essential": true,
+            "environment": [{
+                "name": "spring.profiles.active",
+                "value": "prod"
+            }]
+        }]
+    }
+}

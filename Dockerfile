@@ -1,8 +1,8 @@
 # Start with a base image containing Java runtime
 FROM openjdk:8-jdk-alpine
 #RUN apk add --no-cache bash
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+EXPOSE 8443
 ENV Dspring.profiles.active=prod
 VOLUME /tmp
 ARG JAR_FILE
