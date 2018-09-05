@@ -1,0 +1,42 @@
+{
+
+
+    "serviceRegistries": [],
+
+    "launchType": "FARGATE",
+    "healthCheckGracePeriodSeconds": 120,
+    "loadBalancers": [{
+        "containerName": "ping-qa",
+        "containerPort": 443,
+        "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:152019006453:targetgroup/ecs-defaul-ping-qa/704c699440ccdc98"
+    }],
+    "placementConstraints": [],
+
+    "desiredCount": 2,
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-01bfc62791ccf0feb",
+                "subnet-04e003e2ddf96ed97"
+            ],
+            "securityGroups": [
+                "sg-077aa28f7412b1aac"
+            ],
+            "assignPublicIp": "DISABLED"
+        }
+    },
+    "platformVersion": "LATEST",
+    "serviceName": "ping-qa",
+
+    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping-qa:1",
+    "deploymentConfiguration": {
+        "maximumPercent": 200,
+        "minimumHealthyPercent": 50
+    },
+
+
+
+    "placementStrategy": [],
+
+    "cluster": "default"
+}

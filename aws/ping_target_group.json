@@ -1,0 +1,18 @@
+{
+    "HealthCheckPath": "/api/ping",
+    "HealthCheckIntervalSeconds": 30,
+    "VpcId": "vpc-06c8a91f329c406c7",
+    "Protocol": "HTTPS",
+    "HealthCheckTimeoutSeconds": 20,
+    "TargetType": "ip",
+    "HealthCheckProtocol": "HTTPS",
+
+    "UnhealthyThresholdCount": 10,
+    "HealthyThresholdCount": 5,
+    "Matcher": {
+        "HttpCode": "200"
+    },
+    "HealthCheckPort": "443",
+    "Port": 80,
+    "Name": "ecs-defaul-ping-qa"
+}
