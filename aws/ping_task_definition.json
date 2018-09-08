@@ -20,10 +20,10 @@
             },
             {
                 "name": "PING_TEMPLATE",
-                "value": "Staging ... Hello %s"
+                "value": "QA ... Hello %s"
             }
         ],
-        "name": "ping-qa",
+        "name": "ping",
         "mountPoints": [],
         "image": "152019006453.dkr.ecr.us-east-1.amazonaws.com/infinix/ping:latest",
         "dockerLabels": {

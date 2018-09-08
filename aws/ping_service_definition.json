@@ -6,7 +6,7 @@
     "launchType": "FARGATE",
     "healthCheckGracePeriodSeconds": 120,
     "loadBalancers": [{
-        "containerName": "ping-qa",
+        "containerName": "ping",
         "containerPort": 443,
         "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:152019006453:targetgroup/ecs-defaul-ping-qa/704c699440ccdc98"
     }],
@@ -28,7 +28,7 @@
     "platformVersion": "LATEST",
     "serviceName": "ping-qa",
 
-    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping-qa:1",
+    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping-qa:2",
     "deploymentConfiguration": {
         "maximumPercent": 200,
         "minimumHealthyPercent": 50
