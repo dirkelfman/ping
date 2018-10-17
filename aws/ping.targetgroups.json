@@ -1,0 +1,46 @@
+{
+    "TargetGroups": [
+        {
+            "HealthCheckPath": "/api/ping", 
+            "HealthCheckIntervalSeconds": 30, 
+            "VpcId": "vpc-06c8a91f329c406c7", 
+            "Protocol": "HTTPS", 
+            "HealthCheckTimeoutSeconds": 20, 
+            "TargetType": "ip", 
+            "HealthCheckProtocol": "HTTPS", 
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-1:152019006453:loadbalancer/app/inside-app/bfcce3a35d49795a"
+            ], 
+            "UnhealthyThresholdCount": 10, 
+            "HealthyThresholdCount": 5, 
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:152019006453:targetgroup/ecs-defaul-ping-internal/a93bb4a772f7852d", 
+            "Matcher": {
+                "HttpCode": "200"
+            }, 
+            "HealthCheckPort": "443", 
+            "Port": 80, 
+            "TargetGroupName": "ecs-defaul-ping-internal"
+        }, 
+        {
+            "HealthCheckPath": "/api/ping", 
+            "HealthCheckIntervalSeconds": 30, 
+            "VpcId": "vpc-06c8a91f329c406c7", 
+            "Protocol": "HTTPS", 
+            "HealthCheckTimeoutSeconds": 20, 
+            "TargetType": "ip", 
+            "HealthCheckProtocol": "HTTPS", 
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-east-1:152019006453:loadbalancer/app/inside-app/bfcce3a35d49795a"
+            ], 
+            "UnhealthyThresholdCount": 10, 
+            "HealthyThresholdCount": 5, 
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:152019006453:targetgroup/ecs-defaul-ping-qa/704c699440ccdc98", 
+            "Matcher": {
+                "HttpCode": "200"
+            }, 
+            "HealthCheckPort": "443", 
+            "Port": 80, 
+            "TargetGroupName": "ecs-defaul-ping-qa"
+        }
+    ]
+}

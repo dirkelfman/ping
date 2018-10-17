@@ -1,0 +1,147 @@
+{
+    "pipeline": {
+        "roleArn": "arn:aws:iam::152019006453:role/code-build-ping-service-role2", 
+        "stages": [
+            {
+                "name": "Source", 
+                "actions": [
+                    {
+                        "inputArtifacts": [], 
+                        "name": "Source", 
+                        "actionTypeId": {
+                            "category": "Source", 
+                            "owner": "ThirdParty", 
+                            "version": "1", 
+                            "provider": "GitHub"
+                        }, 
+                        "outputArtifacts": [
+                            {
+                                "name": "Source"
+                            }
+                        ], 
+                        "configuration": {
+                            "Owner": "dirkelfman", 
+                            "Repo": "ping", 
+                            "PollForSourceChanges": "false", 
+                            "Branch": "master", 
+                            "OAuthToken": "****"
+                        }, 
+                        "runOrder": 1
+                    }
+                ]
+            }, 
+            {
+                "name": "Build", 
+                "actions": [
+                    {
+                        "inputArtifacts": [
+                            {
+                                "name": "Source"
+                            }
+                        ], 
+                        "name": "CodeBuild", 
+                        "actionTypeId": {
+                            "category": "Build", 
+                            "owner": "AWS", 
+                            "version": "1", 
+                            "provider": "CodeBuild"
+                        }, 
+                        "outputArtifacts": [
+                            {
+                                "name": "ImageDef"
+                            }
+                        ], 
+                        "configuration": {
+                            "ProjectName": "ping"
+                        }, 
+                        "runOrder": 1
+                    }
+                ]
+            }, 
+            {
+                "name": "Staging", 
+                "actions": [
+                    {
+                        "inputArtifacts": [
+                            {
+                                "name": "ImageDef"
+                            }
+                        ], 
+                        "name": "ping-internal", 
+                        "actionTypeId": {
+                            "category": "Deploy", 
+                            "owner": "AWS", 
+                            "version": "1", 
+                            "provider": "ECS"
+                        }, 
+                        "outputArtifacts": [], 
+                        "configuration": {
+                            "ClusterName": "default", 
+                            "ServiceName": "ping-internal", 
+                            "FileName": "imagedefinitions.json"
+                        }, 
+                        "runOrder": 1
+                    }
+                ]
+            }, 
+            {
+                "name": "QA-Approval", 
+                "actions": [
+                    {
+                        "inputArtifacts": [], 
+                        "name": "qa-approval", 
+                        "actionTypeId": {
+                            "category": "Approval", 
+                            "owner": "AWS", 
+                            "version": "1", 
+                            "provider": "Manual"
+                        }, 
+                        "outputArtifacts": [], 
+                        "configuration": {
+                            "NotificationArn": "arn:aws:sns:us-east-1:152019006453:ci-approval", 
+                            "CustomData": "bla bla bla"
+                        }, 
+                        "runOrder": 1
+                    }
+                ]
+            }, 
+            {
+                "name": "QA-Deploy", 
+                "actions": [
+                    {
+                        "inputArtifacts": [
+                            {
+                                "name": "ImageDef"
+                            }
+                        ], 
+                        "name": "qa-deploy", 
+                        "actionTypeId": {
+                            "category": "Deploy", 
+                            "owner": "AWS", 
+                            "version": "1", 
+                            "provider": "ECS"
+                        }, 
+                        "outputArtifacts": [], 
+                        "configuration": {
+                            "ClusterName": "default", 
+                            "ServiceName": "ping-qa", 
+                            "FileName": "imagedefinitions.json"
+                        }, 
+                        "runOrder": 1
+                    }
+                ]
+            }
+        ], 
+        "artifactStore": {
+            "type": "S3", 
+            "location": "codepipeline-us-east-1-499008316966"
+        }, 
+        "name": "demo", 
+        "version": 4
+    }, 
+    "metadata": {
+        "pipelineArn": "arn:aws:codepipeline:us-east-1:152019006453:demo", 
+        "updated": 1539735304.298, 
+        "created": 1535862636.242
+    }
+}

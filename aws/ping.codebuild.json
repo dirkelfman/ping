@@ -1,0 +1,34 @@
+{
+    "timeoutInMinutes": 60,
+    "name": "ping",
+    "serviceRole": "arn:aws:iam::152019006453:role/service-role/code-build-ping-service-role",
+    "tags": [],
+    "artifacts": {
+        "namespaceType": "NONE",
+        "packaging": "NONE",
+        "type": "CODEPIPELINE",
+        "name": "ping",
+        "encryptionDisabled": false
+    },
+    "lastModified": 1535898565.554,
+    "cache": {
+        "type": "NO_CACHE"
+    },
+    "created": 1535861289.883,
+    "environment": {
+        "computeType": "BUILD_GENERAL1_SMALL",
+        "privilegedMode": true,
+        "image": "aws/codebuild/java:openjdk-9",
+        "type": "LINUX_CONTAINER",
+        "environmentVariables": []
+    },
+    "source": {
+        "insecureSsl": false,
+        "type": "CODEPIPELINE"
+    },
+    "badge": {
+        "badgeEnabled": false
+    },
+    "encryptionKey": "arn:aws:kms:us-east-1:152019006453:alias/aws/s3",
+    "arn": "arn:aws:codebuild:us-east-1:152019006453:project/ping"
+}
