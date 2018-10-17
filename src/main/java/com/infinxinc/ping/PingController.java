@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PingController {
 
-	@Value("${ping.template:Hello , %s!}")
+	@Value("${ping.template:Hello There , %s!}")
     private String template ;
 	private static final String API_ROOT = "/api/ping";
     private final AtomicLong counter = new AtomicLong();
