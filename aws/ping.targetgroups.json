@@ -41,6 +41,7 @@
             "HealthCheckPort": "443", 
             "Port": 80, 
             "TargetGroupName": "ecs-defaul-ping-qa"
+            
         }
     ]
 }

@@ -32,56 +32,6 @@
             "healthCheckGracePeriodSeconds": 120, 
             "schedulingStrategy": "REPLICA", 
             "placementConstraints": [], 
-            "deployments": [
-                {
-                    "status": "PRIMARY", 
-                    "networkConfiguration": {
-                        "awsvpcConfiguration": {
-                            "subnets": [
-                                "subnet-01bfc62791ccf0feb", 
-                                "subnet-04e003e2ddf96ed97"
-                            ], 
-                            "securityGroups": [
-                                "sg-077aa28f7412b1aac"
-                            ], 
-                            "assignPublicIp": "DISABLED"
-                        }
-                    }, 
-                    "pendingCount": 0, 
-                    "launchType": "FARGATE", 
-                    "createdAt": 1539737672.628, 
-                    "desiredCount": 2, 
-                    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping:23", 
-                    "updatedAt": 1539737672.628, 
-                    "platformVersion": "1.2.0", 
-                    "id": "ecs-svc/9223370497117103176", 
-                    "runningCount": 2
-                }, 
-                {
-                    "status": "ACTIVE", 
-                    "networkConfiguration": {
-                        "awsvpcConfiguration": {
-                            "subnets": [
-                                "subnet-01bfc62791ccf0feb", 
-                                "subnet-04e003e2ddf96ed97"
-                            ], 
-                            "securityGroups": [
-                                "sg-077aa28f7412b1aac"
-                            ], 
-                            "assignPublicIp": "DISABLED"
-                        }
-                    }, 
-                    "pendingCount": 0, 
-                    "launchType": "FARGATE", 
-                    "createdAt": 1539735576.826, 
-                    "desiredCount": 2, 
-                    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping:22", 
-                    "updatedAt": 1539737672.631, 
-                    "platformVersion": "1.2.0", 
-                    "id": "ecs-svc/9223370497119198980", 
-                    "runningCount": 1
-                }
-            ], 
             "serviceName": "ping-internal", 
             "runningCount": 3, 
             "status": "ACTIVE", 
@@ -124,32 +74,6 @@
             "healthCheckGracePeriodSeconds": 120, 
             "schedulingStrategy": "REPLICA", 
             "placementConstraints": [], 
-            "deployments": [
-                {
-                    "status": "PRIMARY", 
-                    "networkConfiguration": {
-                        "awsvpcConfiguration": {
-                            "subnets": [
-                                "subnet-01bfc62791ccf0feb", 
-                                "subnet-04e003e2ddf96ed97"
-                            ], 
-                            "securityGroups": [
-                                "sg-077aa28f7412b1aac"
-                            ], 
-                            "assignPublicIp": "DISABLED"
-                        }
-                    }, 
-                    "pendingCount": 0, 
-                    "launchType": "FARGATE", 
-                    "createdAt": 1539736505.225, 
-                    "desiredCount": 2, 
-                    "taskDefinition": "arn:aws:ecs:us-east-1:152019006453:task-definition/ping-qa:4", 
-                    "updatedAt": 1539736505.225, 
-                    "platformVersion": "1.2.0", 
-                    "id": "ecs-svc/9223370497118270581", 
-                    "runningCount": 2
-                }
-            ], 
             "serviceName": "ping-qa", 
             "runningCount": 2, 
             "status": "ACTIVE", 
